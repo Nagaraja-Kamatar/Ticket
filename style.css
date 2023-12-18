@@ -1,0 +1,803 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+:root {
+  font-family: "Acme", sans-serif;
+}
+
+body {
+  background-image: radial-gradient(#e88420, #740b85);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: #2f2f2f;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+#TrickOrTreat {
+  margin: auto;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.head {
+  width: 4.2rem;
+  height: 4rem;
+  position: relative;
+}
+
+.face {
+  background-color: #f7d199;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  border-radius: 99999px;
+}
+.face * {
+  transform-style: preserve-3d;
+}
+
+.face-container {
+  width: 100%;
+  height: 100%;
+  transform-origin: center center 2rem;
+  transform: translateZ(2rem);
+}
+
+.eye {
+  background-color: #000000;
+  width: 0.4rem;
+  height: 0.4rem;
+  position: absolute;
+  top: 2.2rem;
+  border-radius: 99999px;
+}
+.eye.left {
+  left: 1rem;
+}
+.eye.right {
+  right: 1rem;
+}
+.eye::after {
+  content: "";
+  background-color: #ffffff;
+  width: 0.09rem;
+  height: 0.09rem;
+  position: absolute;
+  top: 0.09rem;
+  left: 0.09rem;
+  border-radius: 99999px;
+}
+
+.blush {
+  background-color: #f79999;
+  width: 1.2rem;
+  height: 1.2rem;
+  position: absolute;
+  top: 2.7rem;
+  border-radius: 99999px;
+  filter: blur(4px);
+}
+.blush.left {
+  left: 0.3rem;
+}
+.blush.right {
+  right: 0.3rem;
+}
+
+.mouth {
+  width: 0.9rem;
+  height: 0.4rem;
+  border: solid 0.125rem #000000;
+  border-top: 0;
+  position: absolute;
+  top: 2.95rem;
+  left: calc(50% - 0.45rem);
+  border-radius: 0 0 99999px 99999px;
+}
+
+.hair {
+  background-color: #000000;
+  width: 4.6rem;
+  height: 2.7rem;
+  position: absolute;
+  top: -0.9rem;
+  left: calc(50% - 2.3rem);
+  border-radius: 99999px 99999px 0 0;
+}
+
+.hair-1 {
+  background-color: #000000;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  top: 1.2rem;
+}
+.hair-1.left {
+  left: -1.75rem;
+  border-radius: 50% 50% 50% 0;
+  transform: skew(-15deg) rotate(-25deg);
+}
+.hair-1.right {
+  right: -1.75rem;
+  border-radius: 50% 50% 0 50%;
+  transform: skew(15deg) rotate(25deg);
+}
+
+.hat {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+.hat .hat-top {
+  background-image: linear-gradient(45deg, transparent 0% 50%, #8d65c9 50% 100%);
+  width: 3.8rem;
+  height: 3.8rem;
+  overflow: hidden;
+  position: absolute;
+  top: -1.75rem;
+  left: calc(50% - 1.9rem);
+  transform: rotate(-55deg) skew(-20deg);
+}
+.hat .hat-top .hat-ribbon {
+  background-color: #d14949;
+  width: 5rem;
+  height: 0.75rem;
+  position: absolute;
+  top: calc(calc(50% - 0.375rem) - 0.5rem);
+  left: calc(calc(50% - 2.5rem) + 0.5rem);
+  border-radius: 50% 50% 0% 0%/100% 100% 0% 0%;
+  transform: rotate(43.75deg);
+}
+.hat .hat-bottom {
+  background-color: #8d65c9;
+  width: 6.75rem;
+  height: 1.75rem;
+  position: absolute;
+  top: -0.5rem;
+  left: calc(50% - 3.375rem);
+  border-radius: 50% 50% 25% 25%/75% 75% 25% 25%;
+}
+.hat .hat-bottom::after {
+  content: "";
+  background-color: #000000;
+  width: 4.8rem;
+  height: 1.15rem;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 2.4rem);
+  border-radius: 50% 50% 0% 0%/100% 100% 0% 0%;
+}
+
+.body-1 {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-origin: bottom center;
+}
+
+.witch-skirt {
+  width: 0;
+  height: 5rem;
+  border-left: solid 2.25rem transparent;
+  border-right: solid 2.25rem transparent;
+  border-top: 0;
+  border-bottom: solid 5rem #8d65c9;
+  position: absolute;
+  top: 1.7rem;
+  left: calc(50% - 2.25rem);
+}
+.witch-skirt::after {
+  content: "";
+  background-color: #8d65c9;
+  width: 4.5rem;
+  height: 0.5rem;
+  position: absolute;
+  top: 5rem;
+  left: -2.25rem;
+  border-radius: 0 0 50% 50%/0 0 100% 100%;
+}
+
+.witch-shirt {
+  width: 0;
+  height: 3rem;
+  border-left: solid 1rem transparent;
+  border-right: solid 1rem transparent;
+  border-top: 0;
+  border-bottom: solid 3rem #ffffff;
+  position: absolute;
+  top: 1.95rem;
+  left: calc(50% - 1rem);
+}
+.witch-shirt::before, .witch-shirt::after {
+  content: "";
+  background-color: #e3d132;
+  width: 0.5rem;
+  height: 0.5rem;
+  position: absolute;
+  top: 3.25rem;
+  border-radius: 100%;
+}
+.witch-shirt::before {
+  right: 0.75rem;
+}
+.witch-shirt::after {
+  left: 0.75rem;
+}
+
+.witch-arm {
+  width: 1.5rem;
+  height: 2.5rem;
+  position: absolute;
+  top: 4.4rem;
+  transform-origin: top center;
+}
+.witch-arm.left {
+  left: -1.3rem;
+  transform: rotate(65deg);
+}
+.witch-arm.left .sleeve {
+  left: 0;
+}
+.witch-arm.left .hand {
+  left: 0.1rem;
+}
+.witch-arm.right {
+  right: -1.3rem;
+  transform: rotate(-65deg);
+}
+.witch-arm.right .sleeve {
+  right: 0;
+}
+.witch-arm.right .hand {
+  right: 0.1rem;
+}
+.witch-arm .sleeve {
+  background-color: #ffffff;
+  width: 1.2rem;
+  height: 1.9rem;
+  position: absolute;
+  top: 0;
+  border-radius: 99999px 99999px 0 0;
+}
+.witch-arm .hand {
+  background-color: #f7d199;
+  width: 0.9rem;
+  height: 1.1rem;
+  position: absolute;
+  bottom: 0;
+  border-radius: 99999px;
+}
+
+.witch-leg {
+  background-color: #f7d199;
+  width: 1rem;
+  height: 2rem;
+  overflow: hidden;
+  position: absolute;
+  top: 6.75rem;
+  border-radius: 0 0 99999px 99999px;
+  transform-origin: top center;
+}
+.witch-leg.left {
+  left: -1.25rem;
+  transform: skewX(4deg);
+}
+.witch-leg.right {
+  right: -1.25rem;
+  transform: skewX(-4deg);
+}
+.witch-leg .shoe {
+  background-color: #371c5e;
+  width: 100%;
+  height: 0.8rem;
+  position: absolute;
+  bottom: 0;
+}
+.witch-leg .shoe::after {
+  content: "";
+  background-color: #f7d199;
+  width: 100%;
+  height: 0.3rem;
+  position: absolute;
+  top: 0;
+  border-radius: 0% 0% 50% 50%/0% 0% 100% 100%;
+}
+
+.person-1 {
+  position: absolute;
+  top: 1.5rem;
+  left: calc(50% - 2.1rem);
+  opacity: 0;
+  transform: scale(0);
+  filter: drop-shadow(0rem 0.5rem 0.75rem rgba(0, 0, 0, 0.5));
+  transition: top 380ms cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 380ms cubic-bezier(0.18, 0.89, 0.32, 1.28), transform 380ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  pointer-events: none;
+}
+
+.peek {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  visibility: hidden;
+  pointer-events: none;
+}
+.peek .hand {
+  background-color: #f7d199;
+  width: 1.125rem;
+  height: 0.6875rem;
+  position: absolute;
+  top: 0rem;
+  border-radius: 99999px 99999px 0 0;
+  filter: drop-shadow(0rem 0.5rem 0.75rem rgba(0, 0, 0, 0.5));
+  transition: height 380ms ease-out, top 380ms cubic-bezier(0.18, 0.89, 0.32, 1.28), border-radius 380ms ease-out;
+}
+.peek .hand.left {
+  left: -3.25rem;
+}
+.peek .hand.right {
+  right: -3.25rem;
+}
+
+.pumpkin {
+  background-color: #d96d16;
+  width: 5rem;
+  height: 3rem;
+  border-radius: 99999px;
+  position: absolute;
+  top: 5rem;
+  left: 8rem;
+  opacity: 0;
+  transform: scale(0);
+  filter: drop-shadow(0rem 0.5rem 0.75rem rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+}
+.pumpkin .stem {
+  width: 0;
+  height: 1.25rem;
+  border-left: solid 0.3125rem transparent;
+  border-right: solid 0.3125rem transparent;
+  border-top: solid 1.25rem #356e0d;
+  border-bottom: 0;
+  position: absolute;
+  bottom: 100%;
+  left: calc(50% - 0.3125rem);
+}
+.pumpkin .pumpkin-eye {
+  width: 0;
+  height: 0.75rem;
+  border-left: solid 0.575rem transparent;
+  border-right: solid 0.575rem transparent;
+  border-top: 0;
+  border-bottom: solid 0.75rem #1f1f1f;
+  position: absolute;
+  top: 0.5rem;
+}
+.pumpkin .pumpkin-eye.left {
+  left: 0.9rem;
+}
+.pumpkin .pumpkin-eye.right {
+  right: 0.9rem;
+}
+.pumpkin .pumpkin-mouth {
+  background-color: #1f1f1f;
+  width: 3rem;
+  height: 1rem;
+  position: absolute;
+  top: 1.65rem;
+  left: calc(50% - 1.5rem);
+  border-radius: 0 0 99999px 99999px;
+}
+.pumpkin .pumpkin-mouth::before, .pumpkin .pumpkin-mouth::after {
+  content: "";
+  background-color: #d96d16;
+  width: 0.5rem;
+  height: 0.4rem;
+  position: absolute;
+}
+.pumpkin .pumpkin-mouth::before {
+  top: 0;
+  left: 0.5rem;
+}
+.pumpkin .pumpkin-mouth::after {
+  bottom: 0;
+  left: 1.75rem;
+}
+
+.trick_or_treat:hover:not(:focus) + .container > .person-1,
+.trick_or_treat:active:not(:focus) + .container > .person-1 {
+  top: -2.75rem;
+  opacity: 1;
+  transform: scale(1);
+}
+.trick_or_treat:hover:not(:focus) + .container > .person-1 .face-container,
+.trick_or_treat:active:not(:focus) + .container > .person-1 .face-container {
+  -webkit-animation: peek 3000ms ease-out infinite;
+          animation: peek 3000ms ease-out infinite;
+}
+
+#TrickOrTreat:not(:target) .trick_or_treat:hover + .container > .peek,
+#TrickOrTreat:not(:target) .trick_or_treat:active + .container > .peek,
+#TrickOrTreat:not(:target) .trick_or_treat:active + .container > .peek {
+  visibility: visible;
+  -webkit-animation: to-front 0ms 190ms forwards;
+          animation: to-front 0ms 190ms forwards;
+}
+#TrickOrTreat:not(:target) .trick_or_treat:hover + .container > .peek .hand,
+#TrickOrTreat:not(:target) .trick_or_treat:active + .container > .peek .hand,
+#TrickOrTreat:not(:target) .trick_or_treat:active + .container > .peek .hand {
+  -webkit-animation: peek-hand-pre 190ms ease-out, to-front 0ms 190ms forwards, peek-hand-post 190ms ease-in forwards;
+          animation: peek-hand-pre 190ms ease-out, to-front 0ms 190ms forwards, peek-hand-post 190ms ease-in forwards;
+}
+
+#TrickOrTreat:target > .container > .person-1 {
+  opacity: 1;
+  transform: scale(1);
+  -webkit-animation: jump 256ms ease-out forwards, to-front 0ms 256ms forwards, fall 256ms ease-in 256ms forwards, go-near 512ms ease-in-out forwards;
+          animation: jump 256ms ease-out forwards, to-front 0ms 256ms forwards, fall 256ms ease-in 256ms forwards, go-near 512ms ease-in-out forwards;
+}
+#TrickOrTreat:target > .container > .person-1 .face-container {
+  animation: get-item-face 800ms 812ms ease-out forwards, get-item-face 500ms 2562ms ease-out reverse forwards;
+}
+#TrickOrTreat:target > .container > .person-1 .witch-arm.left {
+  -webkit-animation: get-item-arm-left 1500ms 812ms forwards, trick-or-treat-arm-left 500ms 2562ms ease-out forwards;
+          animation: get-item-arm-left 1500ms 812ms forwards, trick-or-treat-arm-left 500ms 2562ms ease-out forwards;
+}
+#TrickOrTreat:target > .container > .person-1 .witch-arm.right {
+  -webkit-animation: get-item-arm-right 1500ms 812ms forwards, trick-or-treat-arm-right 500ms 2562ms ease-out forwards;
+          animation: get-item-arm-right 1500ms 812ms forwards, trick-or-treat-arm-right 500ms 2562ms ease-out forwards;
+}
+
+#TrickOrTreat:target > .container > .person-1 .face .eye {
+  background-color: transparent;
+  border-top: solid 0.125rem;
+  border-left: solid 0.125rem;
+  border-right: solid 0.125rem;
+  border-radius: 99999px 99999px 0 0;
+  transition: background-color 0ms 2912ms, border 0ms 2912ms, border-radius 0ms 2912ms;
+}
+#TrickOrTreat:target > .container > .person-1 .face .eye::after {
+  opacity: 0;
+  transition: opacity 0ms 2912ms;
+}
+#TrickOrTreat:target > .container > .person-1 .face .mouth {
+  background-color: #e079b7;
+  width: 1.25rem;
+  height: 0.75rem;
+  border: solid 0px;
+  left: calc(50% - 0.625rem);
+  transition: background-color 0ms 2912ms, width 0ms 2912ms, height 0ms 2912ms, border 0ms 2912ms, left 0ms 2912ms;
+}
+
+#TrickOrTreat:target > .container > .pumpkin {
+  top: 5.5rem;
+  left: calc(50% - 2.5rem);
+  opacity: 1;
+  transform: scale(1);
+  z-index: 20;
+  transition: top 500ms 2562ms ease-out, left 500ms 2562ms ease-out, opacity 100ms 2262ms ease-out, transform 100ms 2262ms ease-out;
+}
+
+.trick_or_treat {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 2rem;
+  background-color: #1a64ed;
+  padding: 1.5rem 2rem;
+  border: 0;
+  outline: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem #0e46af;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 24ms ease-out, box-shadow 24ms ease-out, transform 24ms ease-out;
+}
+.trick_or_treat:hover {
+  background-color: #3475ef;
+}
+.trick_or_treat:active {
+  background-color: #1259de;
+  box-shadow: 0 0 #0e46af;
+  transform: translateY(0.5rem);
+}
+.trick_or_treat small {
+  font-size: 1rem;
+}
+
+@-webkit-keyframes peek {
+  20% {
+    transform: translateZ(2rem);
+  }
+  40% {
+    transform: translateZ(2rem) rotateY(-7.5deg);
+  }
+  80% {
+    transform: translateZ(2rem) rotateY(7.5deg);
+  }
+  100% {
+    transform: translateZ(2rem);
+  }
+}
+
+@keyframes peek {
+  20% {
+    transform: translateZ(2rem);
+  }
+  40% {
+    transform: translateZ(2rem) rotateY(-7.5deg);
+  }
+  80% {
+    transform: translateZ(2rem) rotateY(7.5deg);
+  }
+  100% {
+    transform: translateZ(2rem);
+  }
+}
+@-webkit-keyframes peek-hand-pre {
+  0% {
+    top: 0rem;
+  }
+  100% {
+    top: -0.6875rem;
+  }
+}
+@keyframes peek-hand-pre {
+  0% {
+    top: 0rem;
+  }
+  100% {
+    top: -0.6875rem;
+  }
+}
+@-webkit-keyframes peek-hand-post {
+  0% {
+    top: -0.6875rem;
+    border-radius: 99999px 99999px 0 0;
+  }
+  100% {
+    top: -0.2rem;
+    border-radius: 99999px;
+  }
+}
+@keyframes peek-hand-post {
+  0% {
+    top: -0.6875rem;
+    border-radius: 99999px 99999px 0 0;
+  }
+  100% {
+    top: -0.2rem;
+    border-radius: 99999px;
+  }
+}
+@-webkit-keyframes to-front {
+  100% {
+    z-index: 20;
+  }
+}
+@keyframes to-front {
+  100% {
+    z-index: 20;
+  }
+}
+@-webkit-keyframes jump {
+  0% {
+    top: -2.75rem;
+  }
+  100% {
+    top: -15rem;
+  }
+}
+@keyframes jump {
+  0% {
+    top: -2.75rem;
+  }
+  100% {
+    top: -15rem;
+  }
+}
+@-webkit-keyframes fall {
+  0% {
+    top: -15rem;
+  }
+  100% {
+    top: 0rem;
+  }
+}
+@keyframes fall {
+  0% {
+    top: -15rem;
+  }
+  100% {
+    top: 0rem;
+  }
+}
+@-webkit-keyframes go-near {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.45);
+  }
+}
+@keyframes go-near {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.45);
+  }
+}
+@-webkit-keyframes get-item-face {
+  0% {
+    transform: translateZ(2rem);
+  }
+  100% {
+    transform: translateZ(2rem) rotateX(7.5deg) rotateY(-7.5deg);
+  }
+}
+@keyframes get-item-face {
+  0% {
+    transform: translateZ(2rem);
+  }
+  100% {
+    transform: translateZ(2rem) rotateX(7.5deg) rotateY(-7.5deg);
+  }
+}
+@-webkit-keyframes get-item-arm-left {
+  0% {
+    transform: rotate(65deg);
+    z-index: 30;
+  }
+  20% {
+    left: -2.05rem;
+    transform: scaleX(-1) rotate(70deg);
+  }
+  40% {
+    transform: scaleX(-1) rotate(60deg);
+  }
+  60% {
+    transform: scaleX(-1) rotate(70deg);
+  }
+  80% {
+    transform: scaleX(-1) rotate(60deg);
+  }
+  100% {
+    left: -2.05rem;
+    transform: scaleX(-1) rotate(65deg);
+    z-index: 30;
+  }
+}
+@keyframes get-item-arm-left {
+  0% {
+    transform: rotate(65deg);
+    z-index: 30;
+  }
+  20% {
+    left: -2.05rem;
+    transform: scaleX(-1) rotate(70deg);
+  }
+  40% {
+    transform: scaleX(-1) rotate(60deg);
+  }
+  60% {
+    transform: scaleX(-1) rotate(70deg);
+  }
+  80% {
+    transform: scaleX(-1) rotate(60deg);
+  }
+  100% {
+    left: -2.05rem;
+    transform: scaleX(-1) rotate(65deg);
+    z-index: 30;
+  }
+}
+@-webkit-keyframes get-item-arm-right {
+  0% {
+    transform: rotate(-65deg);
+  }
+  20% {
+    transform: rotate(-60deg);
+  }
+  40% {
+    transform: rotate(-70deg);
+  }
+  60% {
+    transform: rotate(-60deg);
+  }
+  80% {
+    transform: rotate(-70deg);
+  }
+  100% {
+    transform: rotate(-65deg);
+  }
+}
+@keyframes get-item-arm-right {
+  0% {
+    transform: rotate(-65deg);
+  }
+  20% {
+    transform: rotate(-60deg);
+  }
+  40% {
+    transform: rotate(-70deg);
+  }
+  60% {
+    transform: rotate(-60deg);
+  }
+  80% {
+    transform: rotate(-70deg);
+  }
+  100% {
+    transform: rotate(-65deg);
+  }
+}
+@-webkit-keyframes trick-or-treat-arm-left {
+  0% {
+    left: -2.05rem;
+    transform: scaleX(-1) rotate(65deg);
+    z-index: 30;
+  }
+  100% {
+    top: 4.15rem;
+    left: -2.1571428571rem;
+    transform: scaleX(-1) rotate(35deg);
+    z-index: 30;
+  }
+}
+@keyframes trick-or-treat-arm-left {
+  0% {
+    left: -2.05rem;
+    transform: scaleX(-1) rotate(65deg);
+    z-index: 30;
+  }
+  100% {
+    top: 4.15rem;
+    left: -2.1571428571rem;
+    transform: scaleX(-1) rotate(35deg);
+    z-index: 30;
+  }
+}
+@-webkit-keyframes trick-or-treat-arm-right {
+  0% {
+    transform: rotate(-65deg);
+    z-index: 30;
+  }
+  100% {
+    top: 4.15rem;
+    right: -2.1571428571rem;
+    transform: scaleX(-1) rotate(-35deg);
+    z-index: 30;
+  }
+}
+@keyframes trick-or-treat-arm-right {
+  0% {
+    transform: rotate(-65deg);
+    z-index: 30;
+  }
+  100% {
+    top: 4.15rem;
+    right: -2.1571428571rem;
+    transform: scaleX(-1) rotate(-35deg);
+    z-index: 30;
+  }
+}
